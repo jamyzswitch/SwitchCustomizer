@@ -44,7 +44,7 @@ namespace switch_logo_patcher
             DriveInfo[] lecteurs = DriveInfo.GetDrives();
             foreach (DriveInfo lecteur in lecteurs)
             {
-                if (lecteur.IsReady && lecteur.DriveType == DriveType.Fixed)
+                if (lecteur.IsReady && (lecteur.DriveType == DriveType.Fixed || lecteur.DriveType == DriveType.Removable))
                 {
                     string nomLecteur = string.IsNullOrEmpty(lecteur.VolumeLabel) ? lecteur.Name : $"{lecteur.Name} ({lecteur.VolumeLabel})";
                     Disk.Items.Add(nomLecteur);
@@ -197,9 +197,9 @@ namespace switch_logo_patcher
         private void Create_button_Click(object sender, EventArgs e)
         {
             this.Cursor = Cursors.WaitCursor;
-            if (Background_hbmenu_pictureBox.Image == null ||
-                Background_hekate_pictureBox.Image == null ||
-                bootlogo_original_pictureBox.Image == null ||
+            if (Background_hbmenu_pictureBox.Image == null &&
+                Background_hekate_pictureBox.Image == null &&
+                bootlogo_original_pictureBox.Image == null &&
                 SplashScreen_pictureBox.Image == null)
             {
                 MessageBox.Show("Please insert one or more images.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning);
