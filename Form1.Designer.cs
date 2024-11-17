@@ -329,7 +329,7 @@ namespace switch_logo_patcher
             this.MinimumSize = new System.Drawing.Size(1074, 626);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SwitchCustomizer";
+            this.Text = "SwitchCustomizer 0.9.19";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Background_hbmenu_pictureBox)).EndInit();
