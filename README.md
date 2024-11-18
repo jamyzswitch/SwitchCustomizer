@@ -12,6 +12,7 @@ You will be able to change the background of the Homebrew Menu, Hekate, and the 
 *   **Switch Logo Patcher**: Seamlessly integrate personalized logos into your Nintendo Switch experience. [Switch Logo Patcher](https://github.com/friedkeenan/switch-logo-patcher)
     
 *   **LibHac/hactoolnet Integration**: Leverage the power of LibHac/hactoolnet for comprehensive customization. [LibHac/hactoolnet](https://github.com/Thealexbarney/LibHac)
-    
+
+*   **.NET 5.0 Integration**: Download & Install .NET5.0 before. [**Download .NET 5.0**](https://dotnet.microsoft.com/en-us/download/dotnet/5.0)
 
 Discover a new realm of customization possibilities with SwitchCustomizer.
