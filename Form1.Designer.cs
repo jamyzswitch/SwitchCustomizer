@@ -49,6 +49,7 @@ namespace switch_logo_patcher
             this.bootlogo_original_pictureBox = new System.Windows.Forms.PictureBox();
             this.Create_button = new System.Windows.Forms.Button();
             this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.Delete_button_SplashScreen = new System.Windows.Forms.Button();
             this.Delete_button3 = new System.Windows.Forms.Button();
             this.SplashScreen_pictureBox = new System.Windows.Forms.PictureBox();
             this.Hekate_button = new System.Windows.Forms.Button();
@@ -266,6 +267,7 @@ namespace switch_logo_patcher
             // 
             // groupBox5
             // 
+            this.groupBox5.Controls.Add(this.Delete_button_SplashScreen);
             this.groupBox5.Controls.Add(this.Delete_button3);
             this.groupBox5.Controls.Add(this.SplashScreen_pictureBox);
             this.groupBox5.Location = new System.Drawing.Point(638, 233);
@@ -274,6 +276,18 @@ namespace switch_logo_patcher
             this.groupBox5.TabIndex = 9;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Splash Screen";
+            // 
+            // Delete_button_SplashScreen
+            // 
+            this.Delete_button_SplashScreen.BackColor = System.Drawing.Color.Transparent;
+            this.Delete_button_SplashScreen.BackgroundImage = global::switch_logo_patcher.Properties.Resources.delete;
+            this.Delete_button_SplashScreen.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.Delete_button_SplashScreen.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.Delete_button_SplashScreen.Location = new System.Drawing.Point(373, 179);
+            this.Delete_button_SplashScreen.Name = "Delete_button_SplashScreen";
+            this.Delete_button_SplashScreen.Size = new System.Drawing.Size(30, 30);
+            this.Delete_button_SplashScreen.TabIndex = 14;
+            this.Delete_button_SplashScreen.UseVisualStyleBackColor = false;
             // 
             // Delete_button3
             // 
@@ -329,7 +343,7 @@ namespace switch_logo_patcher
             this.MinimumSize = new System.Drawing.Size(1074, 626);
             this.Name = "Form1";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "SwitchCustomizer";
+            this.Text = "SwitchCustomizer 0.9.19";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.Background_hbmenu_pictureBox)).EndInit();
@@ -369,6 +383,7 @@ namespace switch_logo_patcher
         private System.Windows.Forms.Button Delete_button2;
         private System.Windows.Forms.Button Delete_button4;
         private System.Windows.Forms.Button Delete_button3;
+        private System.Windows.Forms.Button Delete_button_SplashScreen;
     }
 }
 

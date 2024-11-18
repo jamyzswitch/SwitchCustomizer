@@ -26,6 +26,7 @@ namespace switch_logo_patcher
             Delete_button2.Visible = false;
             Delete_button3.Visible = false;
             Delete_button4.Visible = false;
+            Delete_button_SplashScreen.Visible = false;
         }
         private Image ResizeImage(Image image, int width, int height)
         {
@@ -98,7 +99,7 @@ namespace switch_logo_patcher
         private void BootLogo_Button_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog = new OpenFileDialog();
-            openFileDialog.Filter = "Fichiers image|*.jpg;*.jpeg;*.png;*.gif;*.bmp|Tous les fichiers|*.*";
+            openFileDialog.Filter = "Fichiers image|*.jpg;*.jpeg;*.png;*.gif;*.bmp|All files|*.*";
             if (openFileDialog.ShowDialog() == DialogResult.OK)
             {
                 string imagePath = openFileDialog.FileName;
@@ -124,7 +125,7 @@ namespace switch_logo_patcher
         private void Background_hbmenu_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog_Background_hbmenu_pictureBox = new OpenFileDialog();
-            openFileDialog_Background_hbmenu_pictureBox.Filter = "Fichiers image|*.jpg;*.jpeg;*.bmp|Tous les fichiers|*.*";
+            openFileDialog_Background_hbmenu_pictureBox.Filter = "Fichiers image|*.jpg;*.jpeg;*.bmp|All files|*.*";
             if (openFileDialog_Background_hbmenu_pictureBox.ShowDialog() == DialogResult.OK)
             {
                 string imagePath_Background_hbmenu_pictureBox = openFileDialog_Background_hbmenu_pictureBox.FileName;
@@ -136,7 +137,7 @@ namespace switch_logo_patcher
         private void Background_hekate_Button_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog_Background_hekate_pictureBox = new OpenFileDialog();
-            openFileDialog_Background_hekate_pictureBox.Filter = "Fichiers image|*.jpg;*.jpeg;*.bmp|Tous les fichiers|*.*";
+            openFileDialog_Background_hekate_pictureBox.Filter = "Fichiers image|*.jpg;*.jpeg;*.bmp|All files|*.*";
             if (openFileDialog_Background_hekate_pictureBox.ShowDialog() == DialogResult.OK)
             {
                 string imagePath_Background_hekate_pictureBox = openFileDialog_Background_hekate_pictureBox.FileName;
@@ -148,7 +149,7 @@ namespace switch_logo_patcher
         private void Fusee_ams_launch_hekate_button_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog_Fusee_ams_launch_hekate_pictureBox = new OpenFileDialog();
-            openFileDialog_Fusee_ams_launch_hekate_pictureBox.Filter = "Fichiers image|*.jpg;*.jpeg;*.bmp|Tous les fichiers|*.*";
+            openFileDialog_Fusee_ams_launch_hekate_pictureBox.Filter = "Fichiers image|*.jpg;*.jpeg;*.bmp|All files|*.*";
             if (openFileDialog_Fusee_ams_launch_hekate_pictureBox.ShowDialog() == DialogResult.OK)
             {
                 string imagePath_Fusee_ams_launch_hekate_pictureBox = openFileDialog_Fusee_ams_launch_hekate_pictureBox.FileName;
@@ -208,8 +209,10 @@ namespace switch_logo_patcher
                 bootlogo_original_pictureBox.Image == null &&
                 SplashScreen_pictureBox.Image == null)
             {
+                this.Cursor = Cursors.Default;
                 MessageBox.Show("Please insert one or more images.", "Caution", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
+
             }
 
             if (Disk.SelectedItem != null)
@@ -234,7 +237,7 @@ namespace switch_logo_patcher
                     string backgroundImagePath = Path.Combine(resDirectoryPath, "background.bmp");
                     newImage.Save(backgroundImagePath, ImageFormat.Bmp);
                     newImage.Dispose();
-                    MessageBox.Show("L'image a été convertie et enregistrée avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("The image has been successfully converted and saved for hekate.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 if (SplashScreen_pictureBox.Image != null)
@@ -245,7 +248,7 @@ namespace switch_logo_patcher
                         bmp.RotateFlip(RotateFlipType.Rotate270FlipNone);
                         bmp.Save(bootLogoPath, ImageFormat.Bmp);
                     }
-                    MessageBox.Show("Image convertie et sauvegardée avec succès !");
+                    MessageBox.Show("The image has been successfully converted and saved for SplashScreen.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 if (bootlogo_final_pictureBox.Image != null)
@@ -301,7 +304,7 @@ namespace switch_logo_patcher
                         }
                     }
                     File.Delete(cheminImage);
-                    MessageBox.Show("Conversion terminée. Le dossier 'logo' a été créé dans le chemin spécifié.");
+                    MessageBox.Show("Conversion complete. The 'logo' folder has been created in the specified path.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
 
                 if (Background_hbmenu_pictureBox.Image != null)
@@ -330,17 +333,17 @@ namespace switch_logo_patcher
                             process.WaitForExit();
                             if (process.ExitCode == 0)
                             {
-                                MessageBox.Show("Le fichier custom.romfs a été créé avec succès.", "Succès", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                                MessageBox.Show("The custom.romfs file has been successfully created.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
                             }
                             else
                             {
-                                MessageBox.Show("Une erreur est survenue lors de la création du fichier custom.romfs.", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                MessageBox.Show("An error occurred while creating the custom.romfs file.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                             }
                         }
                     }
                     catch (Exception ex)
                     {
-                        MessageBox.Show($"Une erreur est survenue : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        MessageBox.Show($"An error occurred : {ex.Message}", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     }
                 }
             }
@@ -351,7 +354,7 @@ namespace switch_logo_patcher
         private void Hekate_button_Click(object sender, EventArgs e)
         {
             OpenFileDialog openFileDialog_Hekate_pictureBox = new OpenFileDialog();
-            openFileDialog_Hekate_pictureBox.Filter = "Fichiers image|*.jpg;*.jpeg;*.bmp|Tous les fichiers|*.*";
+            openFileDialog_Hekate_pictureBox.Filter = "Fichiers image|*.jpg;*.jpeg;*.bmp|All files|*.*";
             if (openFileDialog_Hekate_pictureBox.ShowDialog() == DialogResult.OK)
             {
                 string imagePath_Hekate_pictureBox = openFileDialog_Hekate_pictureBox.FileName;
@@ -359,6 +362,7 @@ namespace switch_logo_patcher
                 SplashScreen_pictureBox.Image = image_Hekate_pictureBox;
                 Delete_button3.Visible = true;
             }
+            Delete_button_SplashScreen.Visible = true;
         }
         private void Delete_button1_Click(object sender, EventArgs e)
         {
@@ -382,5 +386,10 @@ namespace switch_logo_patcher
             Delete_button4.Visible = false;
         }
 
+        private void Delete_button_SplashScreen_Click(object sender, EventArgs e)
+        {
+            SplashScreen_pictureBox.Image = null;
+            Delete_button_SplashScreen.Visible = false;
+        }
     }
 }
